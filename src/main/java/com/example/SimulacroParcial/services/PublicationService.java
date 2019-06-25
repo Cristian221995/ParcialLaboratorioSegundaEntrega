@@ -26,7 +26,7 @@ public class PublicationService {
     @Autowired
     ComentariosXPublicacionRepository comentariosXPublicacionRepository;
 
-    public void addPublication(@RequestBody Publication publication, @PathVariable("id") Integer id){
+    public void addPublication(@RequestBody Publication publication, @PathVariable("id") Integer id) {
         User user = userRepository.getOne(id);
         publication.setUser(user);
 
@@ -34,15 +34,15 @@ public class PublicationService {
         publicationRepository.save(publication);
     }
 
-    public List<Publication> getPublications(){
+    public List<Publication> getPublications() {
         return publicationRepository.findAll();
     }
 
-    public List<ComentariosXPublicacion> getComentariosXPublicacion(){
+    public List<ComentariosXPublicacion> getComentariosXPublicacion() {
         return publicationRepository.getComentariosXPublicacion();
     }
 
-    public List<ComentariosXPublicacionClass> getComentariosXPublicacion2(){
+    public List<ComentariosXPublicacionClass> getComentariosXPublicacion2() {
         return comentariosXPublicacionRepository.getComentariosXPublicacion();
     }
 

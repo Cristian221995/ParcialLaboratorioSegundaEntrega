@@ -7,7 +7,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import java.time.LocalDateTime;
 
 @Data
@@ -23,12 +29,12 @@ public class Comentary {
     @JsonFormat(pattern = "dd-MMM-yyyy")
     private LocalDateTime date;
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_user",referencedColumnName = "id")
+    @JoinColumn(name = "id_user", referencedColumnName = "id")
     @JsonIgnore
     @ToString.Exclude
     private User user;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_publication",referencedColumnName = "id")
+    @JoinColumn(name = "id_publication", referencedColumnName = "id")
     @JsonIgnore
     @ToString.Exclude
     private Publication publication;

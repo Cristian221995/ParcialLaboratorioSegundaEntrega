@@ -1,8 +1,5 @@
 package com.example.SimulacroParcial.services;
 
-import com.example.SimulacroParcial.interfaces.ComentaryRepository;
-import com.example.SimulacroParcial.interfaces.PublicationRepository;
-import com.example.SimulacroParcial.interfaces.UserRepository;
 import com.example.SimulacroParcial.models.Comentary;
 import com.example.SimulacroParcial.models.Publication;
 import com.example.SimulacroParcial.models.User;

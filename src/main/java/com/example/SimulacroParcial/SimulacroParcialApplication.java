@@ -10,8 +10,8 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableAsync
 public class SimulacroParcialApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(SimulacroParcialApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SimulacroParcialApplication.class, args);
+    }
 
 }

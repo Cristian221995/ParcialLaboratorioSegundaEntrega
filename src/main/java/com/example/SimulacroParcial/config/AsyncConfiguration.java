@@ -13,13 +13,13 @@ import java.util.concurrent.Executor;
 @EnableAsync
 public class AsyncConfiguration {
     @Value("${executor.corePoolSize: 100}")
-    private  Integer CORE_POL_SIZE;
+    private Integer CORE_POL_SIZE;
 
     @Value("${executor.maxPoolSize: 100}")
-    private  Integer MAX_POOL_SIZE;
+    private Integer MAX_POOL_SIZE;
 
     @Value("${executor.queueCapacity: 500}")
-    private  Integer QUEUE_CAPACITY;
+    private Integer QUEUE_CAPACITY;
 
     @Bean("threadPoolTaskExecutor")
     public Executor asyncExecutor() {

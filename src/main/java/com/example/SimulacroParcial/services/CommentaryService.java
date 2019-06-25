@@ -9,10 +9,7 @@ import com.example.SimulacroParcial.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.time.LocalDateTime;
@@ -29,7 +26,7 @@ public class CommentaryService {
     @Autowired
     UserRepository userRepository;
 
-    public void addComentary(@RequestBody Comentary comentary, @PathVariable("id") Integer id, @PathVariable("idUsuario") Integer idUsuario){
+    public void addComentary(@RequestBody Comentary comentary, @PathVariable("id") Integer id, @PathVariable("idUsuario") Integer idUsuario) {
         Publication publication = publicationRepository.getOne(id);
         comentary.setPublication(publication);
 
@@ -40,18 +37,18 @@ public class CommentaryService {
         comentaryRepository.save(comentary);
     }
 
-    public List<Comentary> getCommentary(){
+    public List<Comentary> getCommentary() {
         return comentaryRepository.findAll();
     }
 
-    public void deleteComentary(@PathVariable("id") Integer id){
+    public void deleteComentary(@PathVariable("id") Integer id) {
         comentaryRepository.deleteById(id);
     }
 
-    @Scheduled(cron="${cronExpression}")
-    public void deleteTime(){
-        List<Comentary> list= comentaryRepository.findAll();
-        for (Comentary c: list){
+    @Scheduled(cron = "${cronExpression}")
+    public void deleteTime() {
+        List<Comentary> list = comentaryRepository.findAll();
+        for (Comentary c : list) {
             comentaryRepository.deleteById(c.getId());
         }
     }

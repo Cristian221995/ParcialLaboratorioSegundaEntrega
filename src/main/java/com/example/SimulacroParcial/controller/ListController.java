@@ -27,7 +27,7 @@ public class ListController {
         CompletableFuture<List<Publication>> publications = listaService.getPublications();
         CompletableFuture<List<Comentary>> comentaries = listaService.getComentaries();
 
-        ListaDeTodo lista = new ListaDeTodo(users.join(),publications.join(),comentaries.join());
+        ListaDeTodo lista = new ListaDeTodo(users.join(), publications.join(), comentaries.join());
 
         return ResponseEntity
                 .status(HttpStatus.OK)

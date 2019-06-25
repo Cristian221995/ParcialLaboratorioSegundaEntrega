@@ -1,6 +1,5 @@
 package com.example.SimulacroParcial.services;
 
-import com.example.SimulacroParcial.interfaces.ComentariosXPublicacion;
 import com.example.SimulacroParcial.interfaces.UserRepository;
 import com.example.SimulacroParcial.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,26 +15,26 @@ public class UserService {
     @Autowired
     UserRepository userRepository;
 
-    public void addUser(@RequestBody User user, HttpServletRequest request){
+    public void addUser(@RequestBody User user, HttpServletRequest request) {
         user.setBrowser(this.getUserAgent(request));
         userRepository.save(user);
     }
 
-    public List<User> getUsers(){
+    public List<User> getUsers() {
         return userRepository.findAll();
     }
 
-    public User getUserById(@PathVariable("id") Integer id){
+    public User getUserById(@PathVariable("id") Integer id) {
         return userRepository.getOne(id);
     }
 
-    public void modifyUser(@PathVariable("id") Integer id, @RequestBody User user){
+    public void modifyUser(@PathVariable("id") Integer id, @RequestBody User user) {
         User aux = userRepository.getOne(id);
         user.setId(aux.getId());
         userRepository.save(user);
     }
 
-    public void deleteUser(@PathVariable("id") Integer id){
+    public void deleteUser(@PathVariable("id") Integer id) {
         userRepository.deleteById(id);
     }
 
